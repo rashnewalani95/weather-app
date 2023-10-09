@@ -1,0 +1,58 @@
+body{
+font-family: "Chakra Petch", sans-serif;
+}
+
+.weather-app-wrapper{
+    max-width: 600px;
+        margin: 30px auto;
+}
+
+.weather-app{
+     border: 5px solid pink;
+    border-radius: 8px;
+    padding: 30px;
+}
+h1{
+    color: rgb(96, 24, 163);
+    font-weight: 100;
+    font-size: 30px;
+    line-height: 28px;
+    margin-bottom: 0;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+}
+
+li{
+   list-style: none;
+   margin: 0;
+   padding: 0;
+   color:rgb(96, 24, 163);
+   font-size: 16px;
+   font-weight: 100;
+   line-height: 19px;
+}
+
+.overview{
+    margin-bottom: 20px;
+}
+
+.weather-temperature img{
+    margin-right: 6px;
+    height: 64px;
+    width: 64px;
+}
+.weather-temperature strong{
+    color:rgb(96, 24, 163) ;
+    font-size: 64px;
+    line-height: 1;
+    font-weight: 400;
+}
+
+.weather-temperature .units{
+    position: relative;
+    font-size: 20px;
+    top: -30px;
+}
