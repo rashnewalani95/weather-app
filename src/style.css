@@ -8,7 +8,7 @@ font-family: "Chakra Petch", sans-serif;
 }
 
 .weather-app{
-     border: 5px solid pink;
+     border: 2px solid rgb(107, 86, 89);
     border-radius: 8px;
     padding: 30px;
 }
@@ -27,6 +27,7 @@ ul{
 
 li{
    list-style: none;
+   text-transform: capitalize;
    margin: 0;
    padding: 0;
    color:rgb(96, 24, 163);
