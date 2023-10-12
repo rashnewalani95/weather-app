@@ -40,11 +40,18 @@ windyElement.innerHTML = Math.round(response.data.wind.speed);
 
 let dateElement = document.querySelector("#date");
 dateElement.innerHTML = formatDate(response.data.dt * 1000);
+
+let iconElement = document.querySelector("#icon");
+iconElement.setAttribute ("src",`https://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`);
+iconElement.setAttribute("alt", response.data.weather[0].description);
+
 }
+
   
   
   
   apiKey = "96ad27349a64ea1dcdfbe6f4d458c085";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Durban&appid=${apiKey}&units=metric`;
+  let city = "Durban"
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(displayTemperature);
