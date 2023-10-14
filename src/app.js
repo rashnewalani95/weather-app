@@ -50,8 +50,20 @@ iconElement.setAttribute("alt", response.data.weather[0].description);
   
   
   
-  apiKey = "96ad27349a64ea1dcdfbe6f4d458c085";
-  let city = "Durban"
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
+ function search(city){
+  apiKey = "96ad27349a64ea1dcdfbe6f4d458c085";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayTemperature);
+
+ }
+
+ function handleSubmit(event){
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+}
+
+search("Durban");
+  let form =document.querySelector("#search-form");
+  form.addEventListener("submit", handleSubmit);
