@@ -24,12 +24,16 @@ function formatDate (timestamp) {
   console.log (response.data.main.temp);
   
   let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  celsiusTemperature = response.data.main.temp;
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
  
+
+celsiusTemperature = response.data.main.temp;
+
+
   let cityElement = document.querySelector("#city");
 cityElement.innerHTML = response.data.name;
 
-let descriptionElement = document.querySelector("#description");
 descriptionElement.innerHTML = response.data.weather[0].description;
 
 let humidityElement = document.querySelector("#humidity");
@@ -42,7 +46,7 @@ let dateElement = document.querySelector("#date");
 dateElement.innerHTML = formatDate(response.data.dt * 1000);
 
 let iconElement = document.querySelector("#icon");
-iconElement.setAttribute ("src",`https://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`);
+iconElement.setAttribute ("src",`https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 iconElement.setAttribute("alt", response.data.weather[0].description);
 
 }
@@ -64,6 +68,43 @@ iconElement.setAttribute("alt", response.data.weather[0].description);
   search(cityInputElement.value);
 }
 
-search("Durban");
+let celsiusTemperature = null;
+
+
   let form =document.querySelector("#search-form");
   form.addEventListener("submit", handleSubmit);
+
+
+
+  function displayFahrenheitTemperature(event){
+    event.preventDefault();
+        let temperatureElement = document.querySelector("#temperature");
+        celiusLink.classList.remove("active");
+        fahrenheitLink.classList.add("active");
+    let FahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+    temperatureElement.innerHTML =  Math.round(FahrenheitTemperature);
+  }
+
+
+   function displayCeliusTemperature(event){
+    event.preventDefault();
+    celiusLink.classList.add("active");
+    fahrenheitLink.classList.remove("active");
+    let temperatureElement = document.querySelector("#temperature");
+    temperatureElement.innerHTML = Math.round(celsiusTemperature);
+ }
+
+
+
+  let fahrenheitLink = document.querySelector("#fahrenheit-link");
+  fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+  let celiusLink = document.querySelector("#celius-link");
+  celiusLink.addEventListener("click", displayCeliusTemperature);
+
+
+
+
+
+
+  search("Durban");
